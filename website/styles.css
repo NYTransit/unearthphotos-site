@@ -4,11 +4,11 @@
   --stone: #ebe5d9;
   --ink: #1e2328;
   --muted: #5f625f;
-  --navy: #132a35;
-  --navy-raised: #1d3a47;
+  --navy: #41516a;
+  --navy-raised: #53647d;
   --gold: #b56813;
-  --gold-bright: #e4b45a;
-  --gold-soft: #f2ddb3;
+  --gold-bright: #f5cc7d;
+  --gold-soft: #f7dfae;
   --focus: #2565a7;
   --line: rgba(30, 35, 40, .15);
   --serif: Iowan Old Style, Baskerville, "Times New Roman", serif;
@@ -26,14 +26,17 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .skip-link:focus { top: 1rem; }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
 
-.site-header { max-width: 1280px; margin: 0 auto; min-height: 88px; padding: 1.1rem clamp(1.25rem, 4vw, 4rem); display: flex; align-items: center; justify-content: space-between; }
+.site-header { width: 100%; min-height: 108px; padding: 1.1rem clamp(1.25rem, 4vw, 4rem); display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; color: #fff; background: var(--navy); box-shadow: 0 8px 24px rgba(35, 46, 62, .16); }
+.header-balance { min-width: 1px; }
 .brand { display: inline-flex; align-items: center; gap: .7rem; text-decoration: none; font-weight: 680; letter-spacing: -.02em; font-size: 1.12rem; }
 .brand img { border-radius: 10px; box-shadow: 0 6px 18px rgba(23, 36, 42, .15); }
 .brand sup { color: var(--gold); font-size: .48em; margin-left: .12rem; vertical-align: super; }
-.site-nav { display: flex; align-items: center; gap: 2rem; }
+.wordmark { justify-self: center; width: clamp(220px, 24vw, 330px); }
+.wordmark img { width: 100%; height: auto; border-radius: 0; box-shadow: none; }
+.site-nav { justify-self: end; display: flex; align-items: center; gap: clamp(1rem, 2vw, 2rem); }
 .site-nav a { text-decoration: none; font-size: .9rem; font-weight: 580; }
-.site-nav a:hover { color: var(--gold); }
-.site-nav .nav-cta { border: 1px solid var(--ink); border-radius: 999px; padding: .55rem 1rem; }
+.site-nav a:hover { color: var(--gold-bright); }
+.site-nav .nav-cta { border: 1px solid var(--gold-bright); border-radius: 999px; padding: .55rem 1rem; }
 .menu-button { display: none; }
 
 .hero { min-height: 690px; max-width: 1280px; margin: 0 auto; padding: clamp(3.5rem, 8vw, 7rem) clamp(1.25rem, 4vw, 4rem) 6rem; display: grid; grid-template-columns: minmax(0, .95fr) minmax(460px, 1.05fr); gap: clamp(3rem, 7vw, 7rem); align-items: center; }
@@ -120,7 +123,8 @@ h1 em { color: var(--gold); font-weight: 500; }
 .beta p:not(.eyebrow) { max-width: 40rem; color: var(--muted); }
 .beta .button { flex: 0 0 auto; margin-bottom: .5rem; }
 footer { max-width: 1160px; margin: 0 auto; padding: 2.5rem 1.25rem; border-top: 1px solid var(--line); display: flex; align-items: center; gap: 2rem; color: var(--muted); font-size: .82rem; }
-.footer-brand { color: var(--ink); }
+.footer-brand { width: 170px; color: var(--ink); }
+.footer-brand img { width: 100%; height: auto; border-radius: 0; box-shadow: none; }
 .copyright { margin-left: auto; }
 
 @media (max-width: 900px) {
@@ -133,10 +137,11 @@ footer { max-width: 1160px; margin: 0 auto; padding: 2.5rem 1.25rem; border-top:
 }
 
 @media (max-width: 680px) {
-  .site-header { min-height: 74px; }
+  .site-header { min-height: 86px; grid-template-columns: 44px 1fr 44px; padding-top: .7rem; padding-bottom: .7rem; }
+  .wordmark { width: min(220px, 62vw); }
   .menu-button { display: grid; place-content: center; gap: 6px; width: 44px; height: 44px; border: 0; background: transparent; cursor: pointer; }
-  .menu-button span:not(.sr-only) { display: block; width: 23px; height: 2px; background: var(--ink); transition: transform 180ms ease; }
-  .site-nav { display: none; position: absolute; z-index: 20; top: 70px; left: 1rem; right: 1rem; flex-direction: column; align-items: stretch; gap: .4rem; padding: 1rem; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; box-shadow: 0 18px 45px rgba(32,40,44,.17); }
+  .menu-button span:not(.sr-only) { display: block; width: 23px; height: 2px; background: #fff; transition: transform 180ms ease; }
+  .site-nav { display: none; position: absolute; z-index: 20; top: 82px; left: 1rem; right: 1rem; flex-direction: column; align-items: stretch; gap: .4rem; padding: 1rem; color: var(--ink); background: var(--surface); border: 1px solid var(--line); border-radius: 12px; box-shadow: 0 18px 45px rgba(32,40,44,.17); }
   .site-nav.open { display: flex; }
   .site-nav a { padding: .7rem; }
   .site-nav .nav-cta { border: 0; border-radius: 7px; background: var(--stone); }
